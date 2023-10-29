@@ -1,16 +1,16 @@
 import React from "react";
 import { View, Image, Text, ScrollView, StyleSheet } from "react-native";
-import { hobbiesData, hobbiesList } from "./data/hobbies";
-import Card from "./Card";
+import { hobbiesData, hobbiesListAlba } from "../data/HobbiesAlba";
+import CardAlba from "./CardAlba";
 
 function Info() {
   return (
-    <View style={styles.bodystails}>
+    <View style={styles.container}>
       <View>
         <View style={styles.infoContainer}>
           <Image
             style={styles.avatar}
-            source={require("../assets/SofyanAmrabat.jpg")}
+            source={require("../../assets/SofyanAmrabat.jpg")}
           ></Image>
           <View style={styles.infoBackground}>
             <Text style={styles.description}>Descripción sobre mí!</Text>
@@ -22,8 +22,8 @@ function Info() {
         </View>
         <Text style={styles.subtitle}>cosas que me gustan mucho:</Text>
         <ScrollView nestedScrollEnabled={true}>
-          {hobbiesList.map((hobby: hobbiesData, id: number) => {
-            return <Card hobby={hobby.hobby} id={hobby.id} key={id} />;
+          {hobbiesListAlba.map((hobby: hobbiesData, id: number) => {
+            return <CardAlba hobby={hobby.hobby} id={hobby.id} key={id} />;
           })}
         </ScrollView>
       </View>
@@ -32,11 +32,12 @@ function Info() {
 }
 
 const styles = StyleSheet.create({
-  bodystails: {
+  container: {
     width: "100%",
     alignItems: "center",
     justifyContent: "space-between",
     height: "85%",
+    backgroundColor: "#fce8e6",
   },
   avatar: {
     height: 90,
@@ -46,10 +47,11 @@ const styles = StyleSheet.create({
   infoContainer: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "center",
   },
   infoBackground: {
     margin: 10,
-    backgroundColor: "lightgray",
+    backgroundColor: "white",
     padding: 10,
     borderRadius: 10,
     width: "70%",

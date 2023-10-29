@@ -3,7 +3,7 @@ export type hobbiesData = {
   hobby: string;
 };
 
-export const hobbiesList: hobbiesData[] = [
+export const hobbiesListAna: hobbiesData[] = [
   {
     id: 0,
     hobby: "Salir a pasear",

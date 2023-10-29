@@ -1,22 +1,25 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 
 type CardProps = { id: number; hobby: string };
 function Card(props: CardProps) {
-  return <View style={styles.card}>{props.hobby}</View>;
+  return (
+    <View style={styles.card}>
+      <Text> {props.hobby}</Text>
+    </View>
+  );
 }
 const styles = StyleSheet.create({
   card: {
-    borderColor: "black",
-    borderWidth: 1,
-    borderStyle: "dashed",
+    borderRadius: 10,
     padding: 20,
     color: "darkred",
     textAlign: "center",
     fontWeight: "bold",
     fontStyle: "italic",
     fontSize: 16,
-    backgroundColor: "silver",
+    backgroundColor: "white",
+    margin: 10,
   },
 });
 export default Card;
