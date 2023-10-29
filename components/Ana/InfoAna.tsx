@@ -10,7 +10,7 @@ function InfoAna() {
         <View style={styles.infoContainer}>
           <Image
             style={styles.avatar}
-            source={require("../../assets/IMG_5266.JPG")}
+            source={require("../../assets/img_5266.jpg")}
           ></Image>
           <View style={styles.infoBackground}>
             <Text style={styles.description}>Descripción sobre mí!</Text>
