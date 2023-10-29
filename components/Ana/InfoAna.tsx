@@ -10,13 +10,13 @@ function InfoAna() {
         <View style={styles.infoContainer}>
           <Image
             style={styles.avatar}
-            source={require("../../assets/SofyanAmrabat.jpg")}
+            source={require("../../assets/IMG_5266.JPG")}
           ></Image>
           <View style={styles.infoBackground}>
             <Text style={styles.description}>Descripción sobre mí!</Text>
             <Text>
-              Soy profe y me gusta mi trabajo aunque a veces me de por enrevesar
-              prácticas para mis queridos alumnos
+              Soy Ana Isabel, administrativa y estudiante de DAM, con iniciativa
+              emprendedora.
             </Text>
           </View>
         </View>
