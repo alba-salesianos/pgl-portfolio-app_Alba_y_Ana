@@ -10,13 +10,13 @@ function Info() {
         <View style={styles.infoContainer}>
           <Image
             style={styles.avatar}
-            source={require("../../assets/SofyanAmrabat.jpg")}
+            source={require("../../assets/haechan.webp")}
           ></Image>
           <View style={styles.infoBackground}>
-            <Text style={styles.description}>Descripción sobre mí!</Text>
+            <Text style={styles.description}>Descripción</Text>
             <Text>
-              Soy profe y me gusta mi trabajo aunque a veces me de por enrevesar
-              prácticas para mis queridos alumnos
+              Programadora y traductora. Y en mis ratos libres me gusta
+              conquistar el mundo.
             </Text>
           </View>
         </View>
