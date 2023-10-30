@@ -1,26 +1,43 @@
 import React from "react";
-import { Button, Pressable, StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
+import { coloursLight, coloursDark } from "../assets/styles/colours";
 
-type SetDisplay = { setDisplayPorfolio: (param: boolean) => void };
+interface componentProps {
+  setDisplayPortfolio: (param: boolean) => void;
+  setDisplayQR: (param: boolean) => void;
+  setIsDarkTheme: (param: boolean) => void;
+}
 
-function Header(props: SetDisplay) {
-  const { setDisplayPorfolio } = props;
+function Header(props: componentProps) {
+  const { setDisplayPortfolio, setDisplayQR, setIsDarkTheme } = props;
+
+  const changeButton = () => {
+    setDisplayPortfolio(!setDisplayPortfolio);
+    setDisplayQR(true);
+  };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>My Portfolio App</Text>
       <View style={styles.menu}>
+        <Button onPress={() => setIsDarkTheme(!setIsDarkTheme)} title="tema" />
         <View style={styles.buttons}>
           <Button
-            onPress={() => setDisplayPorfolio(true)}
+            onPress={() => changeButton()}
             title="Alba"
-            color="#eb9797"
+            color={coloursLight.buttons}
             accessibilityLabel="Un botón pa la info"
           />
           <Button
-            onPress={() => setDisplayPorfolio(false)}
+            onPress={() => changeButton()}
             title="Ana"
-            color="#eb9797"
+            color={coloursLight.buttons}
+            accessibilityLabel="Un botón pal QR"
+          />
+          <Button
+            onPress={() => setDisplayQR(false)}
+            title="QR"
+            color={coloursLight.buttons}
             accessibilityLabel="Un botón pal QR"
           />
         </View>
@@ -36,7 +53,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   title: {
-    backgroundColor: "#c75f5f",
+    backgroundColor: coloursLight.title,
     textAlign: "center",
     fontWeight: "bold",
     textAlignVertical: "center",
@@ -44,7 +61,7 @@ const styles = StyleSheet.create({
   },
   menu: {
     flexDirection: "row",
-    backgroundColor: "#e88484",
+    backgroundColor: coloursLight.subtitle,
     padding: 10,
     justifyContent: "center",
     alignItems: "center",
@@ -52,8 +69,7 @@ const styles = StyleSheet.create({
   buttons: {
     flexDirection: "row",
     borderRadius: 10,
-    width: "35%",
-    color: "white",
+    width: "50%",
     fontWeight: "bold",
     textTransform: "uppercase",
     justifyContent: "space-between",

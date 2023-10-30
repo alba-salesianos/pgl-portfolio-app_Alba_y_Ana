@@ -2,6 +2,7 @@ import React from "react";
 import { View, Image, Text, ScrollView, StyleSheet } from "react-native";
 import { hobbiesData, hobbiesListAlba } from "../data/HobbiesAlba";
 import CardAlba from "./CardAlba";
+import { coloursLight, coloursDark } from "../../assets/styles/colours";
 
 function Info() {
   return (
@@ -33,11 +34,12 @@ function Info() {
 
 const styles = StyleSheet.create({
   container: {
+    color: coloursLight.font,
     width: "100%",
     alignItems: "center",
     justifyContent: "space-between",
     height: "85%",
-    backgroundColor: "#fce8e6",
+    backgroundColor: coloursLight.background,
   },
   avatar: {
     height: 90,
@@ -62,7 +64,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   subtitle: {
-    color: "beriblak",
     fontWeight: "900",
     textTransform: "capitalize",
     fontSize: 20,
