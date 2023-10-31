@@ -60,7 +60,13 @@ function InfoAna(props: DarkThemeProps) {
         </Text>
         <ScrollView nestedScrollEnabled={true}>
           {hobbiesListAna.map((hobby: hobbiesData, id: number) => {
-            return <Card hobby={hobby.hobby} isDarkTheme={isDarkTheme} />;
+            return (
+              <Card
+                hobby={hobby.hobby}
+                isDarkTheme={isDarkTheme}
+                key={hobby.id}
+              />
+            );
           })}
         </ScrollView>
       </View>

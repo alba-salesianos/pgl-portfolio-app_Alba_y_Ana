@@ -4,7 +4,6 @@ import { hobbiesData, hobbiesListAlba } from "../data/HobbiesAlba";
 import Card from "../Card";
 import { coloursLight, coloursDark } from "../../assets/styles/colours";
 
-
 interface DarkThemeProps {
   isDarkTheme: boolean;
 }
@@ -61,7 +60,13 @@ function InfoAlba(props: DarkThemeProps) {
         </Text>
         <ScrollView nestedScrollEnabled={true}>
           {hobbiesListAlba.map((hobby: hobbiesData, id: number) => {
-            return <Card hobby={hobby.hobby} isDarkTheme={isDarkTheme} />;
+            return (
+              <Card
+                hobby={hobby.hobby}
+                isDarkTheme={isDarkTheme}
+                key={hobby.id}
+              />
+            );
           })}
         </ScrollView>
       </View>
