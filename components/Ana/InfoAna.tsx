@@ -1,19 +1,15 @@
 import React from "react";
 import { View, Image, Text, ScrollView, StyleSheet } from "react-native";
 import { hobbiesData, hobbiesListAna } from "../data/HobbiesAna";
-import CardAna from "./CardAna";
+import Card from "../Card";
 import { coloursLight, coloursDark } from "../../assets/styles/colours";
 
 interface DarkThemeProps {
   isDarkTheme: boolean;
 }
 
-let darkTheme;
-
 function InfoAna(props: DarkThemeProps) {
   const { isDarkTheme } = props;
-
-  darkTheme = isDarkTheme;
 
   return (
     <View
@@ -64,7 +60,7 @@ function InfoAna(props: DarkThemeProps) {
         </Text>
         <ScrollView nestedScrollEnabled={true}>
           {hobbiesListAna.map((hobby: hobbiesData, id: number) => {
-            return <CardAna hobby={hobby.hobby} isDarkTheme={isDarkTheme} />;
+            return <Card hobby={hobby.hobby} isDarkTheme={isDarkTheme} />;
           })}
         </ScrollView>
       </View>

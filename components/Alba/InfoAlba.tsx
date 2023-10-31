@@ -1,8 +1,9 @@
 import React from "react";
 import { View, Image, Text, ScrollView, StyleSheet } from "react-native";
 import { hobbiesData, hobbiesListAlba } from "../data/HobbiesAlba";
-import CardAlba from "./CardAlba";
+import Card from "../Card";
 import { coloursLight, coloursDark } from "../../assets/styles/colours";
+
 
 interface DarkThemeProps {
   isDarkTheme: boolean;
@@ -60,7 +61,7 @@ function InfoAlba(props: DarkThemeProps) {
         </Text>
         <ScrollView nestedScrollEnabled={true}>
           {hobbiesListAlba.map((hobby: hobbiesData, id: number) => {
-            return <CardAlba hobby={hobby.hobby} isDarkTheme={isDarkTheme} />;
+            return <Card hobby={hobby.hobby} isDarkTheme={isDarkTheme} />;
           })}
         </ScrollView>
       </View>
@@ -86,7 +87,6 @@ const styles = StyleSheet.create({
     height: "85%",
     backgroundColor: coloursDark.background,
   },
-
   avatar: {
     height: 90,
     width: 90,

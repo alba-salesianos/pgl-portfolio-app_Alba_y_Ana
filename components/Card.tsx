@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
-import { coloursLight, coloursDark } from "../../assets/styles/colours";
+import { coloursLight, coloursDark } from "../assets/styles/colours";
 
 interface Props {
   isDarkTheme: boolean;

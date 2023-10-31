@@ -23,8 +23,6 @@ function Header(props: componentProps) {
     setDisplayQR(true);
   };
 
-  const toggleSwitch = () => setIsDarkTheme(!isDarkTheme);
-
   return (
     <View style={styles.container}>
       <Text
@@ -39,15 +37,19 @@ function Header(props: componentProps) {
             : styles.buttonsPanelDark
         }
       >
-        <Switch onValueChange={() => toggleSwitch()} value={isDarkTheme} />
         <View style={styles.buttons}>
+          <Switch
+            onValueChange={() => setIsDarkTheme(!isDarkTheme)}
+            value={isDarkTheme}
+          />
+
           <Button
             onPress={() => handleButtonAlba()}
             title="Alba"
             color={
               isDarkTheme === false ? coloursLight.buttons : coloursDark.buttons
             }
-            accessibilityLabel="Un botón pa la info"
+            accessibilityLabel="Botón del portfolio de Alba"
           />
           <Button
             onPress={() => handleButtonAna()}
@@ -55,7 +57,7 @@ function Header(props: componentProps) {
             color={
               isDarkTheme === false ? coloursLight.buttons : coloursDark.buttons
             }
-            accessibilityLabel="Un botón pal QR"
+            accessibilityLabel="Botón del portfolio de Ana"
           />
           <Button
             onPress={() => setDisplayQR(false)}
@@ -63,7 +65,7 @@ function Header(props: componentProps) {
             color={
               isDarkTheme === false ? coloursLight.buttons : coloursDark.buttons
             }
-            accessibilityLabel="Un botón pal QR"
+            accessibilityLabel="QR del repositorio"
           />
         </View>
       </View>
@@ -91,7 +93,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     textAlignVertical: "center",
-
     fontSize: 30,
   },
   buttonsPanelLight: {
@@ -111,7 +112,7 @@ const styles = StyleSheet.create({
   buttons: {
     flexDirection: "row",
     borderRadius: 10,
-    width: "50%",
+    width: "70%",
     fontWeight: "bold",
     textTransform: "uppercase",
     justifyContent: "space-between",
