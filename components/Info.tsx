@@ -1,11 +1,11 @@
 import React from "react";
 import { View, Image, Text, ScrollView, StyleSheet } from "react-native";
-import { hobbiesData, hobbiesList } from "./data/hobbies";
+import { hobbiesData, hobbiesList } from "./data/Hobbies";
 import Card from "./Card";
 
 function Info() {
   return (
-    <View style={styles.bodystails}>
+    <View style={styles.container}>
       <View>
         <View style={styles.infoContainer}>
           <Image
@@ -32,7 +32,7 @@ function Info() {
 }
 
 const styles = StyleSheet.create({
-  bodystails: {
+  container: {
     width: "100%",
     alignItems: "center",
     justifyContent: "space-between",
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   subtitle: {
-    color: "beriblak",
+    color: "black",
     fontWeight: "900",
     textTransform: "capitalize",
     fontSize: 20,

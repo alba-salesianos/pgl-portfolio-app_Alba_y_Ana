@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Pressable, StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 
 type SetDisplay = { setDisplayMyQR: (param: boolean) => void };
 
@@ -55,17 +55,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textTransform: "uppercase",
     justifyContent: "space-between",
-  },
-  shadoxboxing: {
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 7,
-    },
-    shadowOpacity: 0.43,
-    shadowRadius: 9.51,
-
-    elevation: 15,
   },
 });
 
