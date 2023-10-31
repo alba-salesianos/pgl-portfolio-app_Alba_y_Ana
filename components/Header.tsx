@@ -1,43 +1,68 @@
 import React from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Switch, Text, View } from "react-native";
 import { coloursLight, coloursDark } from "../assets/styles/colours";
 
 interface componentProps {
   setDisplayPortfolio: (param: boolean) => void;
   setDisplayQR: (param: boolean) => void;
   setIsDarkTheme: (param: boolean) => void;
+  isDarkTheme: boolean;
 }
 
 function Header(props: componentProps) {
-  const { setDisplayPortfolio, setDisplayQR, setIsDarkTheme } = props;
+  const { setDisplayPortfolio, setDisplayQR, setIsDarkTheme, isDarkTheme } =
+    props;
 
-  const changeButton = () => {
-    setDisplayPortfolio(!setDisplayPortfolio);
+  const handleButtonAlba = () => {
+    setDisplayPortfolio(true);
     setDisplayQR(true);
   };
 
+  const handleButtonAna = () => {
+    setDisplayPortfolio(false);
+    setDisplayQR(true);
+  };
+
+  const toggleSwitch = () => setIsDarkTheme(!isDarkTheme);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>My Portfolio App</Text>
-      <View style={styles.menu}>
-        <Button onPress={() => setIsDarkTheme(!setIsDarkTheme)} title="tema" />
+      <Text
+        style={isDarkTheme === false ? styles.titleLight : styles.titleDark}
+      >
+        My Portfolio App
+      </Text>
+      <View
+        style={
+          isDarkTheme === false
+            ? styles.buttonsPanelLight
+            : styles.buttonsPanelDark
+        }
+      >
+        <Switch onValueChange={() => toggleSwitch()} value={isDarkTheme} />
         <View style={styles.buttons}>
           <Button
-            onPress={() => changeButton()}
+            onPress={() => handleButtonAlba()}
             title="Alba"
-            color={coloursLight.buttons}
+            color={
+              isDarkTheme === false ? coloursLight.buttons : coloursDark.buttons
+            }
             accessibilityLabel="Un botón pa la info"
           />
           <Button
-            onPress={() => changeButton()}
+            onPress={() => handleButtonAna()}
             title="Ana"
-            color={coloursLight.buttons}
+            color={
+              isDarkTheme === false ? coloursLight.buttons : coloursDark.buttons
+            }
             accessibilityLabel="Un botón pal QR"
           />
           <Button
             onPress={() => setDisplayQR(false)}
             title="QR"
-            color={coloursLight.buttons}
+            color={
+              isDarkTheme === false ? coloursLight.buttons : coloursDark.buttons
+            }
             accessibilityLabel="Un botón pal QR"
           />
         </View>
@@ -52,16 +77,33 @@ const styles = StyleSheet.create({
     paddingTop: 25,
     width: "100%",
   },
-  title: {
+  titleLight: {
     backgroundColor: coloursLight.title,
+    color: coloursLight.font,
     textAlign: "center",
     fontWeight: "bold",
     textAlignVertical: "center",
     fontSize: 30,
   },
-  menu: {
+  titleDark: {
+    backgroundColor: coloursDark.title,
+    color: coloursDark.font,
+    textAlign: "center",
+    fontWeight: "bold",
+    textAlignVertical: "center",
+
+    fontSize: 30,
+  },
+  buttonsPanelLight: {
     flexDirection: "row",
     backgroundColor: coloursLight.subtitle,
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonsPanelDark: {
+    flexDirection: "row",
+    backgroundColor: coloursDark.subtitle,
     padding: 10,
     justifyContent: "center",
     alignItems: "center",

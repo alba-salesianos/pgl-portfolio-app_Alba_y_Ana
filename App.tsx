@@ -11,14 +11,22 @@ export default function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   return (
-    <View style={styles.container}>
+    <View
+      style={
+        isDarkTheme === false ? styles.containerLight : styles.containerDark
+      }
+    >
       <Header
         setDisplayPortfolio={setDisplayPortfolio}
         setDisplayQR={setDisplayQR}
         setIsDarkTheme={setIsDarkTheme}
+        isDarkTheme={isDarkTheme}
       />
       {displayQR ? (
-        <Portfolio displayPortfolio={displayPortfolio} />
+        <Portfolio
+          displayPortfolio={displayPortfolio}
+          isDarkTheme={isDarkTheme}
+        />
       ) : (
         <View style={styles.QR}>
           <QRCode value="https://github.com/alba-salesianos/pgl-portfolio-app_Alba_y_Ana" />
@@ -29,10 +37,16 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  containerLight: {
     flex: 1,
-    backgroundColor:
-      isDarkTheme === false ? coloursLight.background : coloursDark.background,
+    backgroundColor: coloursLight.background,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  containerDark: {
+    flex: 1,
+    backgroundColor: coloursDark.background,
     alignItems: "center",
     justifyContent: "center",
   },

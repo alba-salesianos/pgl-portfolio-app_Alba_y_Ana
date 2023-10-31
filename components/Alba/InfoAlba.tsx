@@ -4,27 +4,63 @@ import { hobbiesData, hobbiesListAlba } from "../data/HobbiesAlba";
 import CardAlba from "./CardAlba";
 import { coloursLight, coloursDark } from "../../assets/styles/colours";
 
-function Info() {
+interface DarkThemeProps {
+  isDarkTheme: boolean;
+}
+
+function InfoAlba(props: DarkThemeProps) {
+  const { isDarkTheme } = props;
+
   return (
-    <View style={styles.container}>
+    <View
+      style={
+        isDarkTheme === false ? styles.containerLight : styles.containerDark
+      }
+    >
       <View>
         <View style={styles.infoContainer}>
           <Image
             style={styles.avatar}
             source={require("../../assets/haechan.webp")}
           ></Image>
-          <View style={styles.infoBackground}>
-            <Text style={styles.description}>Descripción</Text>
-            <Text>
+          <View
+            style={
+              isDarkTheme === false
+                ? styles.infoBackgroundLight
+                : styles.infoBackgroundDark
+            }
+          >
+            <Text
+              style={
+                isDarkTheme === false
+                  ? styles.descriptionLight
+                  : styles.descriptionDark
+              }
+            >
+              Descripción
+            </Text>
+            <Text
+              style={
+                isDarkTheme === false
+                  ? styles.descriptionBodyLight
+                  : styles.descriptionBodyDark
+              }
+            >
               Programadora y traductora. Y en mis ratos libres me gusta
               conquistar el mundo.
             </Text>
           </View>
         </View>
-        <Text style={styles.subtitle}>cosas que me gustan mucho:</Text>
+        <Text
+          style={
+            isDarkTheme === false ? styles.subtitleLight : styles.subtitleDark
+          }
+        >
+          cosas que me gustan mucho:
+        </Text>
         <ScrollView nestedScrollEnabled={true}>
           {hobbiesListAlba.map((hobby: hobbiesData, id: number) => {
-            return <CardAlba hobby={hobby.hobby} id={hobby.id} key={id} />;
+            return <CardAlba hobby={hobby.hobby} isDarkTheme={isDarkTheme} />;
           })}
         </ScrollView>
       </View>
@@ -33,7 +69,7 @@ function Info() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  containerLight: {
     color: coloursLight.font,
     width: "100%",
     alignItems: "center",
@@ -41,6 +77,16 @@ const styles = StyleSheet.create({
     height: "85%",
     backgroundColor: coloursLight.background,
   },
+
+  containerDark: {
+    color: coloursDark.font,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "space-between",
+    height: "85%",
+    backgroundColor: coloursDark.background,
+  },
+
   avatar: {
     height: 90,
     width: 90,
@@ -51,19 +97,49 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  infoBackground: {
+  infoBackgroundDark: {
+    color: coloursDark.font,
     margin: 10,
-    backgroundColor: "white",
+    backgroundColor: coloursDark.backgroundCards,
     padding: 10,
     borderRadius: 10,
     width: "70%",
   },
-  description: {
+  infoBackgroundLight: {
+    color: coloursLight.font,
+    margin: 10,
+    backgroundColor: coloursLight.backgroundCards,
+    padding: 10,
+    borderRadius: 10,
+    width: "70%",
+  },
+  descriptionDark: {
+    color: coloursDark.font,
     textAlign: "center",
     fontWeight: "700",
     fontSize: 20,
   },
-  subtitle: {
+  descriptionLight: {
+    color: coloursLight.font,
+    textAlign: "center",
+    fontWeight: "700",
+    fontSize: 20,
+  },
+  descriptionBodyDark: {
+    color: coloursDark.font,
+  },
+  descriptionBodyLight: {
+    color: coloursLight.font,
+  },
+  subtitleDark: {
+    color: coloursDark.font,
+    fontWeight: "900",
+    textTransform: "capitalize",
+    fontSize: 20,
+    textAlign: "center",
+  },
+  subtitleLight: {
+    color: coloursLight.font,
     fontWeight: "900",
     textTransform: "capitalize",
     fontSize: 20,
@@ -71,4 +147,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Info;
+export default InfoAlba;

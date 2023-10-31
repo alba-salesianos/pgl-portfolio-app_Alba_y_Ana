@@ -5,12 +5,21 @@ import InfoAna from "./Ana/InfoAna";
 
 interface PortfolioProps {
   displayPortfolio: boolean;
+  isDarkTheme: boolean;
 }
 
 function Portfolio(props: PortfolioProps) {
-  const { displayPortfolio } = props;
+  const { displayPortfolio, isDarkTheme } = props;
 
-  return <View>{displayPortfolio ? <InfoAlba /> : <InfoAna />}</View>;
+  return (
+    <View>
+      {displayPortfolio ? (
+        <InfoAlba isDarkTheme={isDarkTheme} />
+      ) : (
+        <InfoAna isDarkTheme={isDarkTheme} />
+      )}
+    </View>
+  );
 }
 
 export default Portfolio;
